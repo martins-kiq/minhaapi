@@ -14,6 +14,9 @@ db.connect(err => {
 if (err) console.error('Erro na conexão:', err.message);
 else console.log('Conectado ao MySQL Azure!');
 });
+app.get('/', (req, res) => {
+  res.send('API rodando!');
+});
 app.get('/usuarios', (req, res) => {
 db.query('SELECT * FROM usuarios', (err, results) => {
 if (err) return res.status(500).json({ erro: err.message });
